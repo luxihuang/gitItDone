@@ -18,6 +18,9 @@ app.get('/images/create', (request, response) => {
     response.render('new') ;
 });
 
+app.get('/login', (request, response) => {
+    response.render('login') ;
+});
 
 app.get('*', (request, response) => {
     response.render('404') ;

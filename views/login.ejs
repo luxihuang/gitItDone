@@ -1,0 +1,21 @@
+<% include globals/header %>
+    <main>
+        <div class="login">
+          <h1>Login</h1>
+          <form action="/login" method="POST">
+            <div class="row">
+              <input type="email" name="email" placeholder="Your email" />
+            </div>
+
+            <div class="row">
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+
+            <div class="row">
+                <input type="submit" value="Submit" />
+              </div>
+          </form>
+        </div>
+    </main>
+
+<% include globals/footer %>
