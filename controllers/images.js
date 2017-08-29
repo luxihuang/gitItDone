@@ -6,7 +6,7 @@ module.exports.notFound = function(request, response) {
 
 const pagetitle = '#gitItDone'
 
-module.exports.get = function(request,response) {	
+module.exports.get = function(request,response) {	  //export for views
     imageBlog.get(function(err,data){
         response.render('images',{pagetitle: pagetitle, data: data});
     })		
