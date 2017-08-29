@@ -1,0 +1,30 @@
+<% include globals/header %>
+
+<div class="links">
+  <a href="/">Home</a>
+  <a href="/login">Login</a>
+  <a href="/signup">Signup</a>
+  <a href="/images/create">Create a New Image</a>
+</div>
+
+<article>
+  <h1>Create a New Image Post </h1>
+
+  <form action="/images/create" enctype="multipart/form-data" method="POST">
+    
+    Upload Image <br>
+    <input type="file" name="image"><br>
+    
+    Image Description <br>    
+    <textarea name="description" required placeholder="Enter Image Description. Max 150 characters" maxlength="150"></textarea>
+    <br>
+    
+    <div>Add Up to 3 image tags</div>
+    Tag 1: <input type="text"><br>
+    Tag 2: <input type="text"><br>
+    Tag 3: <input type="text"><br>
+    <input type="submit">
+  </form>
+</article>
+    
+<% include globals/footer %>

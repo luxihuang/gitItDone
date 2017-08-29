@@ -1,0 +1,38 @@
+<% include globals/header %>
+
+<div class="links">
+  <a href="/">Home</a>
+  <a href="/login">Login</a>
+  <a href="/signup">Signup</a>
+  <a href="/images/create">Create a New Image</a>
+</div>
+
+<main>
+    <div>
+        <h1>Sign Up for an Account</h1>
+
+        <form action="/signup" nctype="multipart/form-data" method="POST">
+            <div class="row">
+              <input type="text" name="firstName" placeholder="First Name" />
+            </div>
+
+            <div class="row">
+            	<input type="text" name="lastName" placeholder="Last Name" />
+            </div>
+
+            <div class="row">
+            	<input type="email" name="email" required placeholder="Your email" />
+            </div>
+
+            <div class="row">
+              <input type="password" name="password" required placeholder="password" />
+            </div>
+
+            <div class="row">
+                <input type="submit" value="Submit" />
+            </div>
+          </form>
+        </div>
+    </main>
+
+<% include globals/footer %>

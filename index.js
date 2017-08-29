@@ -1,6 +1,22 @@
 const express = require('express');
 const app = express(); //use Express
+//-------------------------------------------------
+//This body-parser module parses the JSON, buffer, string and url encoded data submitted using HTTP POST request.  https://stackoverflow.com/questions/38306569/what-does-body-parser-do-with-express 	
+const parser = require('body-parser');
+app.use(parser.urlencoded({ extended: false })); //global use of body-parser 
+//-------------------------------------------------------
+const multer  = require('multer')
+//https://www.youtube.com/watch?v=Gv0PJrMDBYc
+const aws = require('aws-sdk')
+const multerS3 = require('multer-s3') //https://www.npmjs.com/package/multer-s3	
+const AWS = require('aws-sdk');
+const fs = require('fs');
 
+
+//-------------------------------------------------------
+const sharp = require('sharp'); //mage processing module that let's you do things like resize, blur, rotate and crop images
+
+//-------------------------------------------------------
 const port = process.env.PORT || 8080;
 
 app.use(express.static('public')); //static assets are service under the 'public' folder
@@ -8,20 +24,41 @@ app.set('view engine', 'ejs'); //ejs as the rendering engine
 
 const imageController = require('./controllers/images');
 
-//=====before setup controller and models
-app.get('/', (request, response) => {
+
+app.get('/', function(request, response){
     response.render('index') ;
 });
 
-
-app.get('/images/create', (request, response) => {
-    response.render('new') ;
+//========================================================
+app.get('/images/create', function(request, response){
+    response.render('new-image-post') ;
+});
+app.post('/images/create', function(request, response){
+	console.log(request.body);
+    response.render('new-image-post') ;
+});
+//========================================================
+//Login.  GET to render the page, POST to post data
+app.get('/login', function(request, response){
+    response.render('login') ;
 });
 
-
-app.get('*', (request, response) => {
-    response.render('404') ;
+app.post('/login', function(request, response){
+    console.log(request.body); //shows you values you pass to the form
+    response.render('login');
 });
+//========================================================
+//SIGNUP.  GET to render the page, POST to post data
+app.get('/signup', function(request, response){
+	response.render('user-signup') ;
+});
+
+app.post('/signup', function(request, response){
+	console.log(request.body); //shows you values you pass to the form
+    response.render('user-signup') ;
+});
+//========================================================
+app.get('*', imageController.notFound);
 
 
 //=====use this after we setup controller & models
