@@ -22,9 +22,11 @@ app.get('/login', (request, response) => {
     response.render('login') ;
 });
 
-app.get('*', (request, response) => {
-    response.render('404') ;
+app.get('/signup', (request, response) => {
+    response.render('user-signup') ;
 });
+
+app.get('*', (request, imagesController.notFound));
 
 
 //=====use this after we setup controller & models

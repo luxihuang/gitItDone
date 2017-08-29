@@ -1,9 +1,16 @@
 <% include globals/header %>
 
+<div class="links">
+  <a href="/">Home</a>
+  <a href="/login">Login</a>
+  <a href="/signup">Signup</a>
+  <a href="/images/create">Create a New Image</a>
+</div>
+
 <article>
   <h1>Create a New Image Post </h1>
 
-  <form action="/images/create" method="POST">
+  <form action="/images/create" enctype="multipart/form-data" method="POST">
     
     Upload Image <br>
     <input type="file" name="image"><br>
