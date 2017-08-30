@@ -14,7 +14,7 @@ const fs = require('fs');
 
 
 //-------------------------------------------------------
-const sharp = require('sharp'); //mage processing module that let's you do things like resize, blur, rotate and crop images
+// const sharp = require('sharp'); //NOT using this. Image processing module that let's you do things like resize, blur, rotate and crop images
 
 //-------------------------------------------------------
 const port = process.env.PORT || 8080;
@@ -23,6 +23,7 @@ app.use(express.static('public')); //static assets are service under the 'public
 app.set('view engine', 'ejs'); //ejs as the rendering engine
 
 const imageController = require('./controllers/images');
+// const ceateModifyImagesController = require('./controllers/ceateModifyImages');
 
 
 app.get('/', function(request, response){
@@ -58,7 +59,10 @@ app.post('/signup', function(request, response){
     response.render('user-signup') ;
 });
 //========================================================
-app.get('*', imageController.notFound);
+app.get('*',function(request, response){
+    response.render('index') ;
+});
+
 
 
 //=====use this after we setup controller & models
