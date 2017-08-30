@@ -23,6 +23,7 @@ app.use(express.static('public')); //static assets are service under the 'public
 app.set('view engine', 'ejs'); //ejs as the rendering engine
 
 const imageController = require('./controllers/images');
+const imageController = require('./controllers/ceateModifyImages');
 
 
 app.get('/', function(request, response){
