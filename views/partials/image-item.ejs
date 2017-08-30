@@ -1,0 +1,13 @@
+<div class="article-item">
+  <a href="/images/<%= article.id %>">
+    <img src="<%- image.image %>" alt="<%= image.title %>">
+    <h2><%= image.title %></h2>
+    <p><%- image.description %></p>
+  </a>
+  <form action="/image/<%= image.id %>" method="POST">
+    <input class="image-delete-btn" type="submit" value="Delete Me From Form :)">
+    <input name="_method" type="hidden" value="DELETE">
+  </form>
+
+  <button data-action="delete" data-id="<%= image.id %>">Delete Me From Ajax</button>
+</div>
