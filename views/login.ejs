@@ -1,33 +1,43 @@
-<% include globals/header %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <% include ./partials/header.ejs %>
+  </header>
+  <nav>
+    <% include ./partials/nav.ejs%>
+  </nav>
+    <div id="main">
+    <div class="login">
+      <h1>Login</h1>
+        <form action="/login" enctype="multipart/form-data" method="POST">
+          <div class="row">
+            <input type="email" name="email" placeholder="Your email" />
+          </div>
 
-<div class="links">
-  <a href="/">Home</a>
-  <a href="/login">Login</a>
-  <a href="/signup">Signup</a>
-  <a href="/images/create">Create a New Image</a>
-</div>
+          <div class="row">
+            <input type="password" name="password" placeholder="Password" />
+          </div>
 
-<main>
-  <div class="login">
-    <h1>Login</h1>
-      <form action="/login" enctype="multipart/form-data" method="POST">
-        <div class="row">
-          <input type="email" name="email" placeholder="Your email" />
-        </div>
+          <div class="row">
+            <input type="submit" value="Submit" />
+          </div>
 
-        <div class="row">
-          <input type="password" name="password" placeholder="Password" />
-        </div>
+          <div class="links">
+            <a href="/signup">Signup for an account</a>
+          </div>
+        </form>
+      </div>
+  </div>
 
-        <div class="row">
-          <input type="submit" value="Submit" />
-        </div>
 
-        <div class="links">
-          <a href="/signup">Signup for an account</a>
-        </div>
-      </form>
-    </div>
-</main>
+  <footer>
+    <% include ./partials/footer.ejs %>
+  </footer>
+</body>
+</html>
 
-<% include globals/footer %>

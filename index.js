@@ -29,6 +29,7 @@ const imageController = require('./controllers/images');
 app.get('/', function(request, response){
     response.render('index') ;
 });
+app.get('/images', imageController.get)
 
 //========================================================
 app.get('/images/create', function(request, response){
