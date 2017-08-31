@@ -5,16 +5,7 @@ module.exports.notFound = function(request, response) {
 	return response.render('404')
 }
 
-// module.exports.new = function(request, response) {
-// 	response.render('new') ;
-// }
-
-
-
 const pagetitle = '#gitItDone'
-//This is the controller
-//controller goes communicate with model and view
-
 
 module.exports.get = function(request,response) {	
     imageBlog.get(function(err,data){
@@ -22,5 +13,3 @@ module.exports.get = function(request,response) {
     })
 		
 }
->>>>>>> inprogress
->>>>>>> fix merge conflict
