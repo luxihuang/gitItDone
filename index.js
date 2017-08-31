@@ -7,9 +7,9 @@ app.use(parser.urlencoded({ extended: false })); //global use of body-parser
 //-------------------------------------------------------
 const multer  = require('multer')
 //https://www.youtube.com/watch?v=Gv0PJrMDBYc
-const aws = require('aws-sdk')
-const multerS3 = require('multer-s3') //https://www.npmjs.com/package/multer-s3	
-const AWS = require('aws-sdk');
+// const aws = require('aws-sdk')
+// const multerS3 = require('multer-s3') //https://www.npmjs.com/package/multer-s3	
+// const AWS = require('aws-sdk');
 const fs = require('fs');
 
 
