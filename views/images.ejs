@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
- 
-    <body>
-        <% include ./partials/header %>
+        
+        <% include ./partials/header.ejs %>
         <div class="container back" >
             <!-- <div class="container" style="height: 200px; width: 400px; border: 1px solid black; background-image: url('./images/rednblackio.jpg')"> -->
             <div class="col">
@@ -10,7 +7,7 @@
                 <% data.forEach(function(obj) { %>
                     <h3 class='h3Nospace'>
                     <%= obj.tag %>
-                    <img src="<%= obj.imageLink %>" alt="Right Arrow" height="50" width="50">
+                    <a href="<%  %>>"><img src="<%= obj.imageLink %>" alt="Right Arrow" height="50" width="50"></a>
                     <%= obj.description %></h3>
 
                 <% }) %>   
@@ -18,8 +15,7 @@
         
         <p></p>
         <% include ./partials/footer %>
-    </body>
-</html>
+    
 
 
   <!-- "tag": "Array Properties",
