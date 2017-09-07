@@ -3,7 +3,8 @@
   "tag": "1Array Properties",
   "imageLink": "../images/rightarrow2.jpg",
   "description": "1Image Description",
-  "comments":"This this the comments"
+  "comments":"This this the comments",
+  "user":"Tony De Sisso"
   
 }
 ,
@@ -12,7 +13,8 @@
   "tag": "2Array Properties",
   "imageLink": "../images/rednblackio.jpg",
   "description": "2image Description",
-  "comments":"This this the comments"
+  "comments":"This this the comments",
+  "user":"kamilah hamilton"
 }
 ,
 {
@@ -20,6 +22,16 @@
   "tag": "3Array Properties",
   "imageLink": "../images/rnbsquares.jpg",
   "description": "3Description",
-  "comments":"This this the comments"
+  "comments":"This this the comments",
+  "user":"Kate Kolbell"
+}
+,
+{
+  "id":4,
+  "tag": "4 Array Properties",
+  "imageLink": "../images/albert.jpeg",
+  "description": "4 Description",
+  "comments":"This this the comments",
+  "user":"Luxi Huang"
 }
 ]

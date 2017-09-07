@@ -31,6 +31,17 @@ app.get('/', function(request, response){
 });
 app.get('/images', imageController.get)
 
+app.get('/images/:id', function (req, res) {
+    //console.log(req.params.id)
+    //res.send(req.params)
+    res.render('imageDetail',
+    {
+        id: req.params.id,
+        image: "/images/albert.jpeg",
+        des:"Loremictumquam iscing massa. ligula in ultricies quam nullam adipiscing massa. ligula in ultricies quam nullam adipiscing massa. ligula in ultricies quam nullam adipiscing massa."
+
+    }) ;
+  })
 //========================================================
 app.get('/images/create', function(request, response){
     response.render('new-image-post') ;
