@@ -6,9 +6,12 @@
             
                 <% data.forEach(function(obj) { %>
                     <h3 class='h3Nospace'>
-                    <%= obj.tag %>
-                    <a href="<%  %>>"><img src="<%= obj.imageLink %>" alt="Right Arrow" height="50" width="50"></a>
-                    <%= obj.description %></h3>
+                    <p><a href="/tags/<%= obj.tag %>"><%= obj.tag %></a></p>
+                    <a href="/images/<%= obj.id  %>"><img src="<%= obj.imageLink %>" alt="Right Arrow" height="50" width="50"></a>
+                    <div class="w3-border-bottom w3-border-green">
+                        <%= obj.description %>
+                      </div>
+                    </h3>
 
                 <% }) %>   
         </div>

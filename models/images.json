@@ -1,37 +1,46 @@
 [{
   "id":1,
-  "tag": "1Array Properties",
+  "tag": "Right",
   "imageLink": "../images/rightarrow2.jpg",
-  "description": "1Image Description",
-  "comments":"This this the comments",
+  "description": "Right Arrow",
+  "comments":"Everyone is moving in the right direction",
   "user":"Tony De Sisso"
   
 }
 ,
 {
   "id":2,
-  "tag": "2Array Properties",
+  "tag": "Basics",
   "imageLink": "../images/rednblackio.jpg",
-  "description": "2image Description",
-  "comments":"This this the comments",
-  "user":"kamilah hamilton"
+  "description": "On or Off",
+  "comments":"Machine Code 101",
+  "user":"Kamilah Hamilton"
 }
 ,
 {
   "id":3,
-  "tag": "3Array Properties",
+  "tag": "Maze",
   "imageLink": "../images/rnbsquares.jpg",
-  "description": "3Description",
-  "comments":"This this the comments",
+  "description": "Maze Giants",
+  "comments":"Putting the peaces together",
   "user":"Kate Kolbell"
 }
 ,
 {
   "id":4,
-  "tag": "4 Array Properties",
+  "tag": "Brain",
   "imageLink": "../images/albert.jpeg",
-  "description": "4 Description",
-  "comments":"This this the comments",
+  "description": "Albert Repping out",
+  "comments":"Your Brain on Drugs  any question",
   "user":"Luxi Huang"
+}
+,
+{
+  "id":5,
+  "tag": "Brain",
+  "imageLink": "../images/dubs.jpg",
+  "description": "Test Duplicate Tags",
+  "comments":"DUBS",
+  "user":"Test Users"
 }
 ]

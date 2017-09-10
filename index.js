@@ -12,6 +12,9 @@ const multer  = require('multer')
 // const AWS = require('aws-sdk');
 const fs = require('fs');
 
+const images = require('./models/images');
+
+
 //-------------------------------------------------------
 // const sharp = require('sharp'); //NOT using this. Image processing module that let's you do things like resize, blur, rotate and crop images
 
@@ -30,7 +33,38 @@ app.get('/', function(request, response){
     response.render('index') ;
 });
 
+app.get('/tags/:tag', function(req, res){
+    //response.render('index') ;
+    //console.log(req.params.tag)
+   
+    images.get(function(err,data){
+        
+        var tags = data.filter(function(item){
+            return item.tag == req.params.tag
+        })
+        res.render('images',{pagetitle: "lkjf", data: tags});
+    })
+});
+app.get('/images', imageController.get)
+
+app.get('/images/:id', function (req, res) {
+    //console.log(req.params.id)
+    //res.send(req.params)
+    images.get(function(err,data){
+        
+        var image = data.filter(function(item){
+            return item.id == req.params.id
+        })
+        res.render('imageDetail', image[0] );
+    })
+
+    // res.render('imageDetail',
+
+    // ) ;
+  })
 //========================================================
+
+
 app.get('/images/create', function(request, response){
     response.render('new-image-post') ;
 });
