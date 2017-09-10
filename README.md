@@ -12,7 +12,7 @@ npm install
 node ./models/setup.js
 ```
 
-##Environment File
+## Environment File   
 Make sure you add .env file with these parameters:
 ```
 DATABASE_URL='postgres://YOUR_DATABASE_USER:YOUR_DATABASE_PASSWORD@localhost/YOUR_DATABASE_NAME'
