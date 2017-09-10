@@ -39,3 +39,4 @@ module.exports.getAll = getAll;
 module.exports.getByTag = getByTag;
 module.exports.getByUsername = getByUsername;
 module.exports.createByUser = createByUser;
+
