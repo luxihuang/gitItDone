@@ -24,6 +24,7 @@ app.set('view engine', 'ejs'); //ejs as the rendering engine
 const imageController = require('./controllers/images');
 // const ceateModifyImagesController = require('./controllers/ceateModifyImages');
 const userController = require('./controllers/users');
+const createNewImageController = require('./controllers/createModifyImages');
 
 app.get('/', function(request, response){
     response.render('index') ;

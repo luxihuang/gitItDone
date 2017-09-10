@@ -1,4 +1,4 @@
-const users = require('../models/users_repo');
+const users = require('../models/usersLHTest');
 
 //logic to render the user-signup.ejs
 module.exports.new = function(request, response) {
@@ -7,14 +7,11 @@ module.exports.new = function(request, response) {
 
 module.exports.post = function(request, response, next) {
     // save the new user
-    const userInput = {
+    users.createNewUser({
       email: request.body.email,
       password: request.body.password
-    }
-
-    users.create(userInput, (err) => {
+    }, (err) => {
       if (err) {
-      console.log(userInput); //shows you values you pass to the form
         return response.render('user-signup', {
           errors: [{msg: err.message}] 
         });
@@ -26,3 +23,14 @@ module.exports.post = function(request, response, next) {
 // review this video for form field validation with express-validator https://www.youtube.com/watch?v=NWGDcv54Q4Q&list=PLpPnRKq7eNW3Qm2OfoJ3Hyvf-36TulLDp&index=2
 //==========================
 
+// module.exports.createNewUser = function(request, response, next, passport) {
+//   passport.authenticate('local-signup', (err, user) => {
+//     if (err) {
+//       return response.render('new-user', {error: err});
+//     }
+//     if (!user) {
+//       return response.render('new-user', {error: new Error('Please check email and password')});
+//     }
+//     response.redirect('/login');
+//   })(request, response, next);
+// }
