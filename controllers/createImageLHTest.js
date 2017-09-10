@@ -1,4 +1,4 @@
-// const users = require('../models/images_repo');
+// const users = require('../models/imagesLHTest');
 
 // //logic to render the user-signup.ejs
 // module.exports.new = function(request, response) {

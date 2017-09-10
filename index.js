@@ -7,11 +7,13 @@ app.use(parser.urlencoded({ extended: false })); //global use of body-parser
 //-------------------------------------------------------
 const multer  = require('multer')
 //https://www.youtube.com/watch?v=Gv0PJrMDBYc
-const aws = require('aws-sdk')
-const multerS3 = require('multer-s3') //https://www.npmjs.com/package/multer-s3	
-const AWS = require('aws-sdk');
+// const aws = require('aws-sdk')
+// const multerS3 = require('multer-s3') //https://www.npmjs.com/package/multer-s3	
+// const AWS = require('aws-sdk');
 const fs = require('fs');
+
 const images = require('./models/images');
+
 
 //-------------------------------------------------------
 // const sharp = require('sharp'); //NOT using this. Image processing module that let's you do things like resize, blur, rotate and crop images
@@ -24,11 +26,13 @@ app.set('view engine', 'ejs'); //ejs as the rendering engine
 
 const imageController = require('./controllers/images');
 // const ceateModifyImagesController = require('./controllers/ceateModifyImages');
-
+const userController = require('./controllers/users');
+const createNewImageController = require('./controllers/createModifyImages');
 
 app.get('/', function(request, response){
     response.render('index') ;
 });
+
 app.get('/tags/:tag', function(req, res){
     //response.render('index') ;
     //console.log(req.params.tag)
@@ -64,6 +68,7 @@ app.get('/images/:id', function (req, res) {
 app.get('/images/create', function(request, response){
     response.render('new-image-post') ;
 });
+
 app.post('/images/create', function(request, response){
 	console.log(request.body);
     response.render('new-image-post') ;
@@ -84,13 +89,11 @@ app.get('/signup', function(request, response){
 	response.render('user-signup') ;
 });
 
-app.post('/signup', function(request, response){
-	console.log(request.body); //shows you values you pass to the form
-    response.render('user-signup') ;
-});
+app.post('/signup', userController.post);
+
 //========================================================
 app.get('*',function(request, response){
-    response.render('index') ;
+    response.render('404') ;
 });
 
 
