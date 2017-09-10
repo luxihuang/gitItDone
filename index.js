@@ -7,9 +7,9 @@ app.use(parser.urlencoded({ extended: false })); //global use of body-parser
 //-------------------------------------------------------
 const multer  = require('multer')
 //https://www.youtube.com/watch?v=Gv0PJrMDBYc
-const aws = require('aws-sdk')
-const multerS3 = require('multer-s3') //https://www.npmjs.com/package/multer-s3	
-const AWS = require('aws-sdk');
+// const aws = require('aws-sdk')
+// const multerS3 = require('multer-s3') //https://www.npmjs.com/package/multer-s3	
+// const AWS = require('aws-sdk');
 const fs = require('fs');
 
 //-------------------------------------------------------
@@ -25,28 +25,15 @@ const imageController = require('./controllers/images');
 // const ceateModifyImagesController = require('./controllers/ceateModifyImages');
 const userController = require('./controllers/users');
 
-
-//========================================================
 app.get('/', function(request, response){
     response.render('index') ;
 });
-app.get('/images', imageController.get)
 
-app.get('/images/:id', function (req, res) {
-    //console.log(req.params.id)
-    //res.send(req.params)
-    res.render('imageDetail',
-    {
-        id: req.params.id,
-        image: "/images/albert.jpeg",
-        des:"Loremictumquam iscing massa. ligula in ultricies quam nullam adipiscing massa. ligula in ultricies quam nullam adipiscing massa. ligula in ultricies quam nullam adipiscing massa."
-
-    }) ;
-  })
 //========================================================
 app.get('/images/create', function(request, response){
     response.render('new-image-post') ;
 });
+
 app.post('/images/create', function(request, response){
 	console.log(request.body);
     response.render('new-image-post') ;
@@ -71,7 +58,7 @@ app.post('/signup', userController.post);
 
 //========================================================
 app.get('*',function(request, response){
-    response.render('index') ;
+    response.render('404') ;
 });
 
 
