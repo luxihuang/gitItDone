@@ -20,7 +20,12 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.2.0",
+<<<<<<< HEAD
     "s3": "^4.4.0",
     "sequelize": "^4.7.5"
+=======
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.8.0"
+>>>>>>> modified tables
   }
 }

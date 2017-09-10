@@ -6,18 +6,19 @@ const Images = sequelize.define('images', {
     description: Sequelize.STRING(150)
 }, {
     timestamps: true,
-    // classMethods: { //images are made by specific users, have multiple tags, and may be commented on by multiple users
-    //     associate: function(models) {
-    //         Image.hasMany(models.tags);
-    //         Image.hasMany(models.comments);
-    //         Image.belongsToMany(models.users, {
-    //             through: {
-    //                 model: models.user_tags,
-    //                 unique: false
-    //             }
-    //         })
-    //     }
-    // }
+    classMethods: { //images are made by specific users, have multiple tags, and may have multiple comments
+        associate: function(models) {
+            Images.belongsTo(models.usernames);
+            Images.hasMany(models.tags);
+            Images.hasMany(models.comments);
+            // Images.belongsToMany(models.users, {
+            //     through: {
+            //         model: models.user_tags,
+            //         unique: false
+            //     }
+            // })
+        }
+    }
 });
 
 Images.sync();

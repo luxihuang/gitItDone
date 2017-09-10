@@ -4,18 +4,20 @@ const sequelize = require('../db');
 const Comments = sequelize.define('comments', {
     comment: Sequelize.STRING
 }, {
-    // classMethods: { // comments relate to specific images and are made by specific users
-    //     associate: function(models) {
-    //         Image.hasMany(models.comments);
-    //         Image.belongsToMany(models.users, {
-    //             through: {
-    //                 model: models.user_tags,
-    //                 unique: false
-    //             }
-    //         })
-    //     }
-    // }
-})
+    timestamps: true,
+    classMethods: { //comments pertain to a single image
+        associate: function(models) {
+            // Comments.hasMany(models.tags);
+            // Comments.hasMany(models.comments);
+            Comments.belongsTo(models.images, {
+                through: {
+                    model: models.images_id,
+                    unique: false
+                }
+            })
+        }
+    }
+});
 
 Comments.sync();
 
