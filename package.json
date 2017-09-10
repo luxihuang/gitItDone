@@ -11,6 +11,7 @@
   "dependencies": {
     "aws-sdk": "^2.104.0",
     "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "express-validator": "^4.0.0",
@@ -20,12 +21,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.2.0",
-<<<<<<< HEAD
     "s3": "^4.4.0",
     "sequelize": "^4.7.5"
-=======
-    "pg-hstore": "^2.3.2",
-    "sequelize": "^4.8.0"
->>>>>>> modified tables
   }
 }

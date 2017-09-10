@@ -1,16 +1,14 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../db');
-const Users = require('./users');
 
-const Images = sequelize.define('images', {
-    image: { type: Sequelize.STRING, allowNull: false },
-    description: Sequelize.STRING(150)
+const Users = sequelize.define('users', {
+    email: { type: Sequelize.STRING, allowNull: false },
+    password: { type: Sequelize.STRING, allowNull: false }
 }, {
-    timestamps: true,
+    timestamps: false,
     classMethods: { //images are made by specific users, have multiple tags, and may have multiple comments
         associate: function(models) {
-            console.log('mello')
-            Images.belongsTo(models.users);
+            // Images.belongsTo(models.users);
             // Images.hasMany(models.tags);
             // Images.hasMany(models.comments);
             // Images.belongsToMany(models.users, {
@@ -23,8 +21,6 @@ const Images = sequelize.define('images', {
     }
 });
 
-Images.User = Images.belongsTo(Users);
+Users.sync();
 
-Images.sync({force: true});
-
-module.exports = Images;
+module.exports = Users;

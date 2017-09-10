@@ -2,10 +2,14 @@
 // https://github.com/kodosenshi/express-test-app/blob/mvc-postgres/models/articles.js
 // https://github.com/darrenklein/instagram-clone/blob/master/app.js
 
-const Images = require('./imagesTable');
+const Images = require('./images');
+
+const createByUser = function(obj, callback){
+    Images.create(obj).then(callback)
+}
 
 //SQL: select * from images; (list of all images)
-const get = function(callback){
+const getAll = function(callback){
     Images.findAll().then(images => {
         callback(null, images);
     }, err => {
@@ -31,16 +35,7 @@ const getByUsername = function(callback){
     });
 }
 
-//SQL: select * from username; (list of all users)
-const getUsers = function(callback){
-    Usernames.findAll().then(users => {
-        callback(null, users);
-    }, err => {
-        callback(err);
-    });
-}
-
-model.exports.get = get;
-model.exports.getByTag = getByTag;
-model.exports.getByUsername = getByUsername;
-model.exports.getUsers = getUsers;
+module.exports.getAll = getAll;
+module.exports.getByTag = getByTag;
+module.exports.getByUsername = getByUsername;
+module.exports.createByUser = createByUser;
