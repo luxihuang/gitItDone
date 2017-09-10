@@ -25,6 +25,4 @@ const Images = sequelize.define('images', {
 
 Images.User = Images.belongsTo(Users);
 
-Images.sync({force: true});
-
 module.exports = Images;
