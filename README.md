@@ -8,5 +8,12 @@ Technical Spec is here https://docs.google.com/document/d/1ZZpqlU6md22Cam9dph3t0
 ## Database   
 For first time setup, run:
 ```
-node ./model/setup.js
+npm install
+node ./models/setup.js
+```
+
+##Environment File
+Make sure you add .env file with these parameters:
+```
+DATABASE_URL='postgres://YOUR_DATABASE_USER:YOUR_DATABASE_PASSWORD@localhost/gitItDone'
 ```
