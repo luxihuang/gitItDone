@@ -1,10 +1,10 @@
 module.exports.new = function(request, response, next, passport) {
 
   console.log(request.body); //shows you values you pass to the form
-  passport.authenticate('local-login', { 
+  passport.authenticate('local-login', {  //code copied and pasted from http://passportjs.org/docs/authenticate
       successRedirect: '/',
       failureRedirect: '/login', 
-      failureFlash: true 
+      // failureFlash: true 
   })(request, response, next)
 }
 

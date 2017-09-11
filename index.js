@@ -29,15 +29,31 @@ app.set('view engine', 'ejs'); //ejs as the rendering engine
 //==============================================
 //Session & Authentication
 //http://passportjs.org/docs/username-password
-var passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
 
 //passport init
 app.use(passport.initialize());
 app.use(passport.session());
 //you can authenticate using 3rd party like Facebook, Twitter, single-sign-in.  Local strategy is Passport's strategy for authenticating with a username and password.  https://www.npmjs.com/package/passport-local
 
+//Authenticate user 
+//Copy and paste from http://passportjs.org/docs/username-password.  Error cann't get /login
+passport.use(new LocalStrategy(
+  function(email, password, done) {
+    User.findOne({ email: email }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect email.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
-
+//====================
 const session = require('express-session');
 // https://www.npmjs.com/package/express-session.  Once you do this, you can go to network --> cookies, and see a cookie being created called connect.sid
 
@@ -55,9 +71,9 @@ const imageController = require('./controllers/images');
 const userController = require('./controllers/users');
 const testUserController = require('./controllers/usersLHTest');
 const createNewImageController = require('./controllers/createModifyImages');
-
 const sessionController = require('./controllers/sessions');
-
+// middleware for routes where users should be logged-in
+const isAuthenticated = sessionController.isAuthenticated;
 
 app.get('/', function(request, response){
     response.render('index') ;
