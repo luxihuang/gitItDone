@@ -1,43 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <header>
-    <% include ./partials/header.ejs %>
-  </header>
-  <nav>
-    <% include ./partials/nav.ejs%>
-  </nav>
-    <div id="main">
-    <div class="login">
-      <h1>Login</h1>
-        <form action="/login" enctype="multipart/form-data" method="POST">
-          <div class="row">
-            <input type="email" name="email" placeholder="Your email" />
-          </div>
+<% include partials/header %>
+<% include partials/nav%>
 
-          <div class="row">
-            <input type="password" name="password" placeholder="Password" />
-          </div>
+  <h1>Login</h1>
+  <form action="/login" enctype="multipart/form-data" method="POST">
+    <div class="row">
+      <input type="email" name="email" placeholder="Your email" />
+    </div>
 
-          <div class="row">
-            <input type="submit" value="Submit" />
-          </div>
+    <div class="row">
+      <input type="password" name="password" placeholder="Password" />
+    </div>
 
-          <div class="links">
-            <a href="/signup">Signup for an account</a>
-          </div>
-        </form>
-      </div>
-  </div>
+    <div class="row">
+     <input type="submit" value="Submit" />
+    </div>
 
-
-  <footer>
-    <% include ./partials/footer.ejs %>
-  </footer>
-</body>
-</html>
-
+    <div class="links">
+     <a href="/signup">Signup for an account</a>
+    </div>
+  </form>
+      
+<% include partials/footer %>

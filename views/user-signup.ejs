@@ -1,11 +1,5 @@
 <% include partials/header %>
-
-<div class="links">
-  <a href="/">Home</a>
-  <a href="/login">Login</a>
-  <a href="/signup">Signup</a>
-  <a href="/images/create">Create a New Image</a>
-</div>
+<% include partials/nav%>
 
 <main>
     <div>
@@ -23,8 +17,8 @@
             </div>
 
             <div class="row">
-            Retype your Password<br>
-              <input type="retype-password" name="retype-password" required placeholder="retype your password" />
+            Confirm Password<br>
+              <input type="confirm-password" name="confirm-password" required placeholder="retype your password" />
             </div>
 
             <div class="row">

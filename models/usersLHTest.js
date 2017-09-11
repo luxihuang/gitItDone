@@ -1,4 +1,6 @@
 const db = require('../db/indexLHTest');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // =================================================
 // SAVE a New User 
@@ -12,9 +14,13 @@ const createNewUser = function(data, callback) {
 
     console.log(insertSql,insertNewUser);
 
-    db.query(insertSql, insertNewUser, (err, response) => {
-    callback(err, response);
-  })
-}
+    const password = request.body.password;
+
+	// bcrypt.hash(password, saltRounds, function(err, hash) {
+	  db.query(insertSql, insertNewUser, (err, response) => {
+	  	callback(err, response);
+	  });
+	};
+// };
 
 module.exports.createNewUser = createNewUser;

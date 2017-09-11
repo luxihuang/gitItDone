@@ -5,7 +5,7 @@ const pg = require('pg');
 const client = new pg.Pool({
   user: 'postgres',
   host: '127.0.0.1',
-  database: 'instagram_clone',
+  database: 'instagram_test',
   password: 'Lalala!87',
 });
 
