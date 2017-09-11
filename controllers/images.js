@@ -13,3 +13,14 @@ module.exports.get = function(request,response) {
     })
 		
 }
+module.exports.getTag =  function (req, res) {
+    //console.log(req.params.id)
+    //res.send(req.params)
+    images.get(function(err,data){
+        
+        var image = data.filter(function(item){
+            return item.id == req.params.id
+        })
+        res.render('imageDetail', image[0] );
+    })
+  }

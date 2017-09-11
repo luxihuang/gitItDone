@@ -30,7 +30,7 @@ app.get('/', function(request, response){
     response.render('index') ;
 });
 app.get('/images', imageController.get)
-
+app.get('/images/:id', imageController.getTag)
 //========================================================
 app.get('/images/create', function(request, response){
     response.render('new-image-post') ;
