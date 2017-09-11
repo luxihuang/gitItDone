@@ -16,7 +16,7 @@ module.exports.post = function(request, response, next) {
           errors: [{msg: err.message}] 
         });
       }
-     // redirect to the index page which has all the images if successful
+     //  redirect to the index page which has all the images if successful
      response.redirect('/');
     });
 }
