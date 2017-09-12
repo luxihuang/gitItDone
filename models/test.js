@@ -2,6 +2,24 @@ const Images = require('./images');
 const imageRepo = require('./images_repo');
 const Users = require('./users');
 const userRepo = require('./users_repo');
+const Comments = require('./commentsTable');
+const Tags = require('./tagsTable');
+
+function testTagCreation(){
+    Tags.create({
+        comment: 'ryuk'
+    }).then(res => {
+        console.log('rem');
+    });
+}
+
+function testCommentCreation(){
+    Comments.create({
+        comment: 'Speed-Master Professional'
+    }).then(res => {
+        console.log('OMEGA');
+    });
+}
 
 function createImageWithUser(user){
     Images.create({
@@ -87,4 +105,6 @@ function testImageCreation() {
 // testGetUserByteEmail('test@test.com');
 // testCreateNewImageAndUser();
 // createImageWithUser();
-testGetUserByEmail('test@test.com', createImageWithUser);
+// testGetUserByEmail('test@test.com', createImageWithUser);
+testCommentCreation();
+// testTagCreation();
