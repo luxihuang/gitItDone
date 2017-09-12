@@ -1,7 +1,9 @@
 //local strategy https://github.com/jaredhanson/passport-local
+const bcrypt = require('bcryptjs');
+const salt = bcrypt.genSaltSync(10);
+const hash = bcrypt.hashSync("B4c0/\/", salt);
 
 module.exports.new = function(request, response, next, passport) {
-
   console.log(request.body); //shows you values you pass to the form
   passport.authenticate('local-login', {  //code copied and pasted from http://passportjs.org/docs/authenticate
       successRedirect: '/',
