@@ -1,4 +1,5 @@
 const users = require('../models/users_repo');
+const bcrypt = require('bcryptjs');
 
 //logic to render the user-signup.ejs
 module.exports.new = function(request, response) {
@@ -23,6 +24,3 @@ module.exports.post = function(request, response, next) {
      response.redirect('/');
     });
 }
-// review this video for form field validation with express-validator https://www.youtube.com/watch?v=NWGDcv54Q4Q&list=PLpPnRKq7eNW3Qm2OfoJ3Hyvf-36TulLDp&index=2
-//==========================
-

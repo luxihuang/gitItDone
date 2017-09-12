@@ -1,6 +1,4 @@
 const db = require('../db/indexLHTest');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
 
 // =================================================
 // SAVE a New User 

@@ -14,10 +14,9 @@ const multer  = require('multer')
 const fs = require('fs');
 
 //===============================================
-const bcrypt = require('bcrypt'); //standard password hashing.  bcrypt is slow, hashing algo is slow so it slows down the hacking algo
-const saltRounds = 10; //amount of rounds plain text password gets hashed, higher the round the slower
+// const bcrypt = require('bcryptjs');
 
-//===============================================add-new-image-post
+//===============================================
 // const sharp = require('sharp'); //NOT using this. Image processing module that let's you do things like resize, blur, rotate and crop images
 
 //===============================================
@@ -100,7 +99,7 @@ app.get('/signup', userController.new);
 app.post('/signup', userController.post);
 
 //404 Error
-app.get('*', imageController.notFound);
+app.get('*', createNewImageController.notFound);
 
 
 const server = app.listen(port, () => {

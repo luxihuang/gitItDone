@@ -1,3 +1,5 @@
+//local strategy https://github.com/jaredhanson/passport-local
+
 module.exports.new = function(request, response, next, passport) {
 
   console.log(request.body); //shows you values you pass to the form
