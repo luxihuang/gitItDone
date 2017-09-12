@@ -6,7 +6,7 @@ const Users = sequelize.define('users', {
     password: { type: Sequelize.STRING, allowNull: false }
 }, {
     timestamps: false,
-    classMethods: { //images are made by specific users, have multiple tags, and may have multiple comments
+    classMethods: { // users may create multiple images, may create multiple comments
         associate: function(models) {
             // Images.belongsTo(models.users);
             // Images.hasMany(models.tags);

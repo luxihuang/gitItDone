@@ -1,14 +1,17 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../db');
+const Users = require('./users');
+const Images = require('./images');
 
 const Comments = sequelize.define('comments', {
     comment: Sequelize.STRING
 }, {
     timestamps: true,
-    classMethods: { //comments pertain to a single image
+    classMethods: { // comment pertains to a single image, a single user
         associate: function(models) {
             // Comments.hasMany(models.tags);
             // Comments.hasMany(models.comments);
+            Comments.hasOne(models.users);
             Comments.belongsTo(models.images, {
                 through: {
                     model: models.images_id,
@@ -17,17 +20,6 @@ const Comments = sequelize.define('comments', {
             })
         }
     }
-});
-
-Comments.sync();
-
-Comments.create({
-    comment: 'Welcome to the Madness'
-}).then(res => {
-    console.log('victory');
-//     callback(null, res); 
-// }, err => {
-//     callback(err);
 });
 
 module.exports = Comments;

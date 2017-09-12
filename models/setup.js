@@ -3,3 +3,5 @@ const Users = require('./users');
 
 Images.sync({force: true});
 Users.sync();
+Comments.sync();
+Tags.sync();

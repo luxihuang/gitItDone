@@ -1,23 +1,23 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../db');
+const Images = require('./images');
 
 const Tags = sequelize.define('tags', {
     tag: Sequelize.STRING(150)
 }, {
-    classMethods: { //tags are only related to images, but an image has many tags and tags apply to multiple images
+    classMethods: { // an image may have many tags, tags may apply to multiple images
         associate: function(models) {
+            console.log('sayu')
             Tags.hasMany(models.images);
             // Tags.hasMany(models.comments);
             Tags.belongsToMany(models.images, {
-            //     through: {
-            //         model: models.user_tags,
-            //         unique: false
-            //     }
-            // })
+                through: {
+                    model: models.image_id,
+                    unique: false
+                }
+            })
         }
     }
 });
-
-Tags.sync();
 
 module.exports = Tags;
